@@ -35,8 +35,19 @@ let concesionaria = {
            return autos.km < 100;
         })
         return autos0KM;
-     }
-  
-  }
+     },
 
-console.log(concesionaria.autosParaLaVenta('APL123'))
+     listaDeVentas: function (){
+        let listaVentas = this.autos.filter (function(auto){
+            return auto.vendido == true
+        });
+        let listaPrecio = []
+        for (let i=0; i<listaVentas.length;i++){
+           listaPrecio.push(listaVentas[i].precio);
+        }
+        return listaPrecio
+     }
+ 
+}
+
+console.log(concesionaria.listaDeVentas())
