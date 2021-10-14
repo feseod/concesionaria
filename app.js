@@ -1,8 +1,12 @@
 let autos = require ('./autos')
 
+let personas = require ('./personas')
+
 let concesionaria = {
 
    autos: autos,
+
+   personas: personas,
 
    buscarAuto: function (patente) {
     let listaAutos = this.autos;
@@ -46,8 +50,21 @@ let concesionaria = {
            listaPrecio.push(listaVentas[i].precio);
         }
         return listaPrecio
-     }
- 
-}
+     },
 
-console.log(concesionaria.listaDeVentas())
+     totalDeVentas: function(){
+      let suma =this.listaDeVentas().reduce(function(acum,num){
+            return acum + num;
+         }, 0)
+         return suma
+      },
+
+      puedeComprar: function(autos,personas){
+         if (autos.precio < personas.capacidadDePagoTotal && autos.precio/autos.cuotas < personas.capacidadDePagoEnCuotas){
+             return true;
+          } else { return false }
+       } 
+ 
+   }
+
+console.log(concesionaria.puedeComprar('Toyota', 'Juan'))
