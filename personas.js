@@ -4,8 +4,8 @@ let personas = [
      capacidadDePagoTotal: 1000000
     },
     {nombre:'Pepe',
-     capacidadDePagoEnCuotas: 50000,
-     capacidadDePagoTotal: 300000
+     capacidadDePagoEnCuotas: 7200,
+     capacidadDePagoTotal: 1000000
     }
 ]
 

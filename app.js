@@ -63,8 +63,21 @@ let concesionaria = {
          if (autos.precio < personas.capacidadDePagoTotal && autos.precio/autos.cuotas < personas.capacidadDePagoEnCuotas){
              return true;
           } else { return false }
-       } 
+       },
+       
+       autosQuePuedeComprar: function(persona){
+         let autosVenta = this.autosParaLaVenta();
+         let listaParaComprar = [];
+        
+         for (let i=0; i < autosVenta.length; i++){
+           if (this.puedeComprar(autosVenta[i],persona) == true) {
+            listaParaComprar.push(autosVenta[i]);
+            }
+          }
+
+         return listaParaComprar;
+         }
  
    }
 
-console.log(concesionaria.puedeComprar('Toyota', 'Juan'))
+console.log(concesionaria.autosQuePuedeComprar(personas[0]));
